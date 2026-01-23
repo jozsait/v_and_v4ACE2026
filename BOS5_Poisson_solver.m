@@ -16,10 +16,10 @@ BC_value = [0,0];
 
 %% numerical configuration
 % number of nodes
-nx = 4;
+nx = 512;
 
 solver_type = 'indirect';
-niter = 200000;
+niter = 100000;
 
 x = linspace(x0,x1,nx);
 dx = abs(x(2)-x(1));
@@ -42,6 +42,9 @@ C1 = BC_value(2) - f/2 - C2;
 
 x_analyt = x.';%linspace(x0,x1,1001);
 u_analyt = a*x_analyt.^2 + C1*x_analyt + C2;
+
+% u = single(u);
+% u_analyt = single(u_analyt);
 
 err = abs(u - u_analyt);
 disp(max(err));
